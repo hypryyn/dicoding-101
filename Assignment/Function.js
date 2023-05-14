@@ -1,25 +1,59 @@
 /**
  * TODO:
- * Buatlah variabel greatAuthors yang merupakan array
- * berdasarkan hasil filter() dan map() dari books:
- *   - Gunakan fungsi filter untuk mengembalikan nilai item books
- *     yang hanya memiliki nilai sales lebih dari 1000000.
- *   - Gunakan fungsi map pada books yang sudah ter-filter,
- *     untuk mengembalikan nilai string dengan format:
- *     - `${author} adalah penulis buku ${title} yang sangat hebat!`
+ * 1. Buatlah fungsi bernama minimal dengan ketentuan berikut:
+ *    - Menerima dua buah argumen number, a dan b.
+ *    - Mengembalikan nilai terkecil antara a atau b.
+ *    - Bila nilai keduanya sama, maka kembalikan dengan nilai a
  *
- * Catatan: Jangan ubah nilai atau struktur dari books
+ *    contoh:
+ *    minimal(1, 4) // output: 1
+ *    minimal(3, 2) // output: 2
+ *    minimal(3, 3) // output: 3
+ *
+ * 2. Buatlah sebuah function bernama findIndex yang menerima dua parameter, yaitu array dan number.
+ *    Fungsi tersebut harus mengembalikan index dari angka yang sesuai pada array tersebut.
+ *    Jika angka tidak ditemukan, maka kembalikan nilai -1.
+ *
+ *    contoh:
+ *    findIndex([1, 2, 3, 4, 5], 3) // output: 2
+ *    findIndex([1, 2, 3, 4, 5], 6) // output: -1
+ *    findIndex([1, 2, 3, 4, 5], 5) // output: 4
  */
 
-const books = [
-    { title: 'The Da Vinci Code', author: 'Dan Brown', sales: 5094805 },
-    { title: 'The Ghost', author: 'Robert Harris', sales: 807311 },
-    { title: 'White Teeth', author: 'Zadie Smith', sales: 815586 },
-    { title: 'Fifty Shades of Grey', author: 'E. L. James', sales: 3758936 },
-    { title: 'Jamie\'s Italy', author: 'Jamie Oliver', sales: 906968 },
-    { title: 'I Can Make You Thin', author: 'Paul McKenna', sales: 905086 },
-    { title: 'Harry Potter and the Deathly Hallows', author: 'J.K Rowling', sales: 4475152 },
-  ];
-  
-  // Tulis kode di bawah ini
-  const greatAuthors = books.filter((book) => book.sales > 1000000).map((book) => `${book.author} adalah penulis buku ${book.title} yang sangat hebat!`);
+
+// Tulis kode di bawah ini
+function minimal(a, b) {
+    if (a === b) {
+        return a;
+    } else if (a < b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+
+
+
+function findIndex(array, number) {
+    for (let i = 0; i < array.length; i++)
+        if (array[i] === number) {
+            return [i];
+        }
+    return -1;
+}
+
+function minMax(arrayOfNumbers) {
+    let currentMin = arrayOfNumbers[0];
+    let currentMax = arrayOfNumbers[0];
+    for (value of arrayOfNumbers) {
+        if (value < currentMin) {
+            currentMin = value;
+        } else if (value > currentMax) {
+            currentMax = value;
+        }
+    }
+
+    console.log(`currentMin: ${currentMin}, currentMax: ${currentMax}`);
+}
+
+minMax([8, -6, 0, 9, 40, 2, 23, 50, 2, -3, -15, 15, -23, 71]);
