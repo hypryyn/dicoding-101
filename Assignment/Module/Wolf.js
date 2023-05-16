@@ -9,4 +9,4 @@ class Wolf {
   }
   
   // TODO 2
-  module.exports=Wolf;
+  module.exports=Wolf;git 
