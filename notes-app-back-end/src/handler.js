@@ -12,6 +12,7 @@ const addNoteHandler = (request, h) => {
   const newNote = {
     title, tags, body, id, createdAt, updatedAt,
   };
+
   notes.push(newNote);
 
   const isSuccess = notes.filter((note) => note.id === id).length > 0;
@@ -34,7 +35,6 @@ const addNoteHandler = (request, h) => {
   response.code(500);
   return response;
 };
-
 const getAllNotesHandler = () => ({
   status: 'success',
   data: {
@@ -55,6 +55,7 @@ const getNoteByIdHandler = (request, h) => {
       },
     };
   }
+
   const response = h.response({
     status: 'fail',
     message: 'Catatan tidak ditemukan',
